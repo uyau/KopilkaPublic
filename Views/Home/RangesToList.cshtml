@@ -1,0 +1,36 @@
+﻿@model IEnumerable<kopilka.Models.Range>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="delete_link">
+    <a class="link" asp-action="DeleteTable" asp-controller="Home" onclick="return confirm('Вы уверены?')">Удалить таблицу?</a>
+</div>
+<div class="table_div">
+     <table>
+         <tr>
+             @{
+                 var count = 1;
+                 @foreach (var num in Model)
+                  {
+                     if (num.IsDonated == true)
+                     {
+                         <td><span class="true_td">@num.MoneyboxRange</span></td>
+                         if (count++ % 10 == 0)
+                         {
+                             @Html.Raw("</tr>")
+                         }
+                     }
+                     if (num.IsDonated == false)
+                     {
+                     <td>@num.MoneyboxRange</td>
+                         if (count++ % 10 == 0)
+                         {
+                         @Html.Raw("</tr>")
+                         }
+                     }
+
+                  }
+              }
+         </tr>
+     </table>
+</div>

@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="style_index">
+    <div class="div_welcome">
+        <h1>внесите сумму</h1>
+    </div>
+    <div class="mess">
+        @if (ViewBag.downNumber != null || ViewBag.upNumber != null)
+        {
+            <div class="title_mes">вы уже вносили эту сумму</div>
+        }
+        @if (ViewBag.message != null)
+        {
+            <div class="mess">
+                @ViewBag.message
+            </div>
+        }
+    </div>
+        <div class="index_container">
+            <div class="index_input">
+                <div class="form_blockLeft">
+                    @if (ViewBag.downNumber != null)
+                    {
+                        <span>доступно: @ViewBag.downNumber</span>
+                    }
+                </div>
+                <form autocomplete="off" method="post" action="~/Home/Index" class="index_form">
+                    <input type="number" name="selectedNumber" class="block_input" />
+                    <input class="button_index" type="submit" value="Enter" />
+                </form>
+                <div class="form_block">
+                    @if (ViewBag.upNumber != null)
+                     {
+                    <span>доступно: @ViewBag.upNumber</span>
+                     }
+                </div>
+                </div>
+        </div>
+    </div>
