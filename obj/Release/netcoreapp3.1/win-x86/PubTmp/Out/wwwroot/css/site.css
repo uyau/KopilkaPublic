@@ -1,0 +1,365 @@
+﻿/*
+    layout style
+*/
+header {
+    width: 100%;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+    height: 49px;
+    display: flex;
+    background-color: #1d241f;
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+    font-family: 'Righteous', cursive;
+    z-index: 1000;
+}
+
+.link_logo {
+    margin-left: 15px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: 900;
+    opacity: .90;
+}
+
+.link_table {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-left: 50px;
+    opacity: .90;
+}
+
+.link_logout {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-right: 15px;
+    margin-top: 12px;
+    opacity: .90;
+}
+
+.link_logout:hover {
+    opacity: 1;
+}
+
+.link_table:hover {
+    opacity: 1;
+}
+
+.link_logo:hover {
+    opacity: 1;
+}
+
+body {
+    background: url("../img/background5.jpg") repeat center fixed;
+    margin: 0px;
+}
+
+body,html {
+    width:100%;
+    height:100%
+}
+
+/*
+    form style
+*/
+
+.style {
+    font-family: 'Amatic SC', cursive;
+    color: #032e42;
+}
+
+.div_welcome {
+    font-size: 35px;
+    text-align: center;
+}
+
+.login_container{
+    padding: 5px;
+}
+.link {
+    font-size: 23px;
+    font-weight: 900;
+    color: #032e42;
+    margin-left: 6px;
+}
+.link:hover {
+    color: lightskyblue;
+}
+.form {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.form_log {
+    margin-top: 5px;
+    margin-left: 10%;
+}
+
+.form_button {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.form_button_log {
+    margin-top: 10px;
+    margin-left: 20.5%;
+}
+.button {
+    background-color: black;
+    color: white;
+    border-color: black;
+    border-radius: 10px;
+    height: 23px;
+    width: 70px;
+    border: none;
+}
+.button:hover {
+    background-color: darkslategrey;
+}
+.label_login {
+    font-size: 27px;
+    font-weight: 900;
+}
+.label_password {
+    font-size: 25px;
+    font-weight: 900;
+}
+.input_password {
+    margin-left: 1px;
+}
+.login_info {
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.login_h1 {
+    font-size: 29px;
+}
+.validation {
+    font-size: 25px;
+    font-weight: 900;
+}
+.validation_log {
+    font-size: 25px;
+    font-weight: 900;
+    margin-left: 10%;
+}
+.register_container {
+    padding: 5px;
+    display: flex;
+    justify-content:center;
+}
+.button_register {
+    background-color: black;
+    color: white;
+    border-color: black;
+    border-radius: 10px;
+    height: 23px;
+    width: 90px;
+    border: none;
+}
+.button_register:hover {
+    background-color: darkslategrey;
+}
+/*
+    index
+*/
+.index_container {
+    padding: 5px;
+}
+.index_input {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.mess{
+    text-align: center;
+    font-weight: 900;
+    font-size: 30px;
+    width: 100%;
+    height: 30px;
+}
+.form_block {
+    margin-left: 10px;
+    margin-top: 5px;
+    font-weight: 900;
+    font-size: 22px;
+    width: 30%;
+}
+.form_blockLeft {
+    margin-left: 10px;
+    margin-top: 5px;
+    font-weight: 900;
+    font-size: 22px;
+    width: 30%;
+    text-align:end;
+}
+.index_form{
+    margin-left: 10px;
+    height: 20px;
+}
+.style_index {
+    font-family: 'Amatic SC', cursive;
+    color: #032e42;
+    height: 230px;
+}
+.button_index {
+    background-color: black;
+    color: white;
+    border-color: black;
+    border-radius: 10px;
+    height: 23px;
+    width: 70px;
+    border: none;
+    margin-top: 5px;
+}
+.button_index:hover {
+        background-color: darkslategrey;
+
+}
+
+block_input{
+    width: 100px;
+}
+
+/*take off arrows from input type number*/
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+
+/*send to email pass view*/
+.button_sendemail {
+    background-color: black;
+    color: white;
+    border-color: black;
+    border-radius: 10px;
+    height: 23px;
+    width: 87px;
+    border: none;
+}
+.sendemail_input {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.sendemail_form{
+    display: block;
+}
+.block_input_label{
+    width: 100px;
+    font-size: 27px;
+    font-weight: 900;
+}
+.h1_setRange{
+    text-align: center;
+}
+
+/*ranges to list*/
+.table_div{
+    display:flex;
+    justify-content:center;
+    margin-top: 50px;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+td {
+    width: 41px;
+    text-align: center;
+    color: #032e42;
+    font-weight: 900;
+    font-size: 20px;
+    font-family: 'Righteous', cursive;
+}
+.true_td{
+    opacity: 0.2;
+}
+.delete_link {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 55px;
+    padding-right: 5px;
+    font-family: 'Amatic SC', cursive;
+    color: #032e42;
+}
+.hide {
+    display:none;
+}
+.preloader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+}
+.preloader_text {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: -70px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 900;
+    font-size: 20px;
+}
+input[type=button], input[type=text], input[type=number], input[type=password] {
+    font-family: 'Amatic SC', cursive;
+    font-weight: 900;
+    width: 169px;
+    height: 22px;
+    font-size: 26px;
+}
+input[type=submit] {
+    font-family: 'Amatic SC', cursive;
+    font-weight: 900;
+    font-size: 20px;
+    height: 27px;
+}
+.link_forgotpass {
+    font-size: 23px;
+    font-weight: 900;
+    color: #032e42;
+    margin-left: 10%;
+    display: flex;
+    margin-top: 20px;
+}
+.link_forgotpass:hover {
+    color: lightskyblue;
+}
+.link_reg {
+    font-size: 23px;
+    font-weight: 900;
+    color: #032e42;
+    margin-left: 10%;
+    display: flex;
+    margin-top: 20px;
+}
+
+.link_reg:hover {
+    color: lightskyblue;
+}

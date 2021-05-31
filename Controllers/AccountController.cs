@@ -4,36 +4,42 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using kopilka.ViewModels; 
+using kopilka.ViewModels;
 using kopilka.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+
 namespace kopilka.Controllers
 {
     public class AccountController : Controller
     {
         private KopilkaContext db;
-        public AccountController (KopilkaContext context)
+        private EmailService EmailService;
+        public AccountController(KopilkaContext context, EmailService emailService)
         {
             db = context;
+            EmailService = emailService;
         }
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
-      [HttpPost]
-      [ValidateAntiForgeryToken]
-      public async Task<IActionResult> Login (LoginModel model)
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Login && u.Password == model.Password);
-                if(user!=null)
+                if (user != null)
                 {
-                    await Authenticate(model.Login); 
+                    await Authenticate(model.Login);
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
@@ -42,25 +48,28 @@ namespace kopilka.Controllers
         }
         //отправка пароля на почту
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult SendToEmailPassword()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult SendToEmailPassword(SendToEmailPassword model)
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendToEmailPassword(SendToEmailPassword model)
         {
             if (ModelState.IsValid)
             {
-                var email = db.Users.FirstOrDefault(u => u.Login == model.Email).Login;
-                var password = db.Users.FirstOrDefault(u => u.Login == model.Email).Password;
-                if (email!=null)
+                var user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Email);
+                if (user != null)
                 {
-                    EmailService emailService = new EmailService();
-                    emailService.SendEmailPassword(email,password);
+                    //EmailService emailService = new EmailService();
+                    EmailService.SendEmailPassword(user.Login, user.Password);
                     return RedirectToAction("Login");
                 }
                 else
-                ModelState.AddModelError("", "something went wrong..");
+                    ModelState.AddModelError("", "something went wrong..");
+                
             }
             return View(model);
         }
@@ -80,7 +89,7 @@ namespace kopilka.Controllers
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Login);
                 if (user == null)
                 {
-                   
+
                     db.Users.Add(new User { Login = model.Login, Password = model.Password });
                     await db.SaveChangesAsync();
 

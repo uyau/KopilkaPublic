@@ -88,6 +88,8 @@ C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kop
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\kopilka.Views.pdb
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\EntityFramework.dll
+C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\MailKit.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -96,6 +98,7 @@ C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kop
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
@@ -115,7 +118,9 @@ C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kop
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\MimeKit.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
@@ -148,6 +153,9 @@ C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kop
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\kopilka.TagHelpers.input.cache
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\kopilka.TagHelpers.output.cache
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\kopilka.RazorCoreGenerate.cache
+C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\Razor\Views\Account\SendToEmailPassword.cshtml.g.cs
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\Razor\Views\Home\RangesToList.cshtml.g.cs
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\Razor\Views\Home\SetRange.cshtml.g.cs
@@ -163,11 +171,3 @@ C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kop
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\kopilka.dll
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\kopilka.pdb
 C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\kopilka.genruntimeconfig.cache
-C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
-C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
-C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Humanizer.dll
-C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\MailKit.dll
-C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\MimeKit.dll
-C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
-C:\Users\david\OneDrive\Рабочий стол\приложения\kopilka\kopilka\obj\Debug\netcoreapp3.1\Razor\Views\Account\SendToEmailPassword.cshtml.g.cs
