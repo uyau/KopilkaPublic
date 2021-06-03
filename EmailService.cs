@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MimeKit;
-//using MailKit.Net.Smtp;
 using System.Net.Mail;
 using System.Net;
 
@@ -13,24 +12,9 @@ namespace kopilka
     {
         public void SendEmailPassword(string email, string message)
         {
-            //MimeMessage emailMessage = new MimeMessage();
-            //emailMessage.From.Add(new MailboxAddress("Kopipika", "HiThere@Kopipika.com"));
-            //emailMessage.To.Add(new MailboxAddress("", email));
-            //emailMessage.Subject = "Password from Kopipika";
-            //emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
-            //{
-            //    Text = message
-            //};
-            //using (SmtpClient client = new SmtpClient())
-            //{
-            //    client.Connect("smtp.gmail.com", 465, true);
-            //    client.Authenticate("messagekopipika@gmail.com", "wtfwamble14");
-            //    client.Send(emailMessage);
-            //    client.Disconnect(true);
-            //}
             MailMessage emailMessage = new MailMessage();
             emailMessage.IsBodyHtml = true;
-            emailMessage.From = new MailAddress("HiThere@Kopipika.com","Kopipika");
+            emailMessage.From = new MailAddress("Kopipika","HiThere@Kopipika.com");
             emailMessage.To.Add(email);
             emailMessage.Subject = "Пароль от учетной записи koPIPIka";
             emailMessage.Body = message;
@@ -39,7 +23,7 @@ namespace kopilka
                 client.UseDefaultCredentials = false;
                 client.EnableSsl = true;
                 client.EnableSsl = true;
-                client.Credentials = new NetworkCredential("messagekopipika@gmail.com", "wtfwamble14");
+                client.Credentials = new NetworkCredential("messagekopipika@gmail.com", "******");
                 client.Port = 587;
                 client.Send(emailMessage);
             }

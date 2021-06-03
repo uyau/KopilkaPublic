@@ -63,7 +63,6 @@ namespace kopilka.Controllers
                 var user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Email);
                 if (user != null)
                 {
-                    //EmailService emailService = new EmailService();
                     EmailService.SendEmailPassword(user.Login, user.Password);
                     return RedirectToAction("Login");
                 }
