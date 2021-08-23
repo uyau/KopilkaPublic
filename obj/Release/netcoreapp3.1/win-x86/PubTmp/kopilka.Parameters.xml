@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="uuyauu-001-site1" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\david\\OneDrive\\Рабочий\ стол\\приложения\\kopilka\\kopilka\\obj\\Release\\netcoreapp3\.1\\win-x86\\PubTmp\\Out\\$" />
-  </parameter>
-</parameters>
