@@ -1,9 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="style_index">
-    <div class="div_welcome">
+<!--INDEX VIEW-->
+<div class="style_index" data-bind="visible: showIndex">
+    <div class="div_welcome" data-bind="childrenComplete: doStart">
         <h1>внесите сумму</h1>
     </div>
     <div class="mess">
@@ -26,16 +26,158 @@
                         <span>доступно: @ViewBag.downNumber</span>
                     }
                 </div>
-                <form autocomplete="off" method="post" action="~/Home/Index" class="index_form">
-                    <input type="number" name="selectedNumber" class="block_input" />
-                    <input class="button_index" type="submit" value="Enter" />
+                <form  class="index_form">
+                    <input type="number" name="selectedNumber" class="block_input" data-bind="value: num"/>
+                    <input class="button_index" type="button" value="ввод" data-bind="click: sendNum"/>
                 </form>
                 <div class="form_block">
                     @if (ViewBag.upNumber != null)
-                     {
+                    {
                     <span>доступно: @ViewBag.upNumber</span>
-                     }
+                    }
                 </div>
-                </div>
+            </div>
+        </div>
+</div>
+<!--выбор диапазона копилки-->
+<div data-bind="visible: showPreloader">
+    <div class="hide" id="preloader_text">Пожалуйста подождити</div>
+    <div class="hide" id="preloader"><img src="~/img/loader.gif" /></div>
+</div>
+
+<div data-bind="visible: showSetRange">
+    <div class="style" id="style">
+        <div class="div_welcome">
+            <h1>Выберите диапазон копилки</h1>
+        </div>
+        <div class="index_container">
+            <div class="index_input">
+                <form method="post" action="~/Home/SetRange" class="index_form">
+                    <label class="block_input_label">от 1 до:</label>
+                    <input type="number" name="selectedRange" max="25000" id="typedNumber" class="block_input" data-bind="value: range" />
+                    <input type="button" value="Enter" class="button_index" id="button" data-bind="click: setRange" />
+                </form>
+            </div>
+            <h1 class="h1_setRange">Сумма накоплений составит:<span id="SumMoneybox"></span></h1>
         </div>
     </div>
+</div>
+<!--View Table-->
+<div data-bind="visible: showTable">
+    <div class="delete_link">
+        <a class="link" href="" onclick="return confirm('Вы уверены?')" data-bind="click: goToSetRange">Удалить таблицу?</a>
+    </div>
+    <div class="table_div">
+        <table data-bind="foreach: table">
+            @*<tr>
+                <td>
+                    <pre data-bind="text: JSON.stringify(ko.toJS($data), null, 2)"></pre>
+                </td>
+            </tr>*@
+            <tr>
+
+                <td data-bind="text: moneyboxRange"/>
+                
+                @*@{ var count = 1;
+                    if (count++ % 10 == 0)
+                    {
+                @Html.Raw("</tr>")
+                    } 
+                 }*@
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+    doStart= function() {
+        $.ajax({
+            url: "@Url.Action("CheckForRange")",
+            method: "get",
+            dataType: "json",
+            success: function (data) {
+                if (data) {
+                    showSetRange(true);
+                    showIndex(false);
+                }
+                else {
+                    showIndex(true);
+                }
+            }
+        });
+    }
+    // index action
+    toIndex = function () {
+        showIndex(true);
+        showTable(false);
+        showSetRange(false);
+    }
+    var viewModel = {
+        num: ko.observable(""),
+        range: ko.observable(""),
+        tabde: ko.observableArray([])
+    }
+    
+    sendNum = function () {
+        $.ajax({
+            url: "@Url.Action("Index")",
+            method: "post",
+            data: ko.toJSON(viewModel.num),
+            contentType: "application/json",
+            success: function (data) {
+                
+            }
+        });
+    }
+    goToTable = function () {
+        showIndex(false);
+        showTable(true);
+        $.ajax({
+            url: "@Url.Action("RangesToList")",
+            method: "get",
+            dataType: "json",
+            success: function (data) {
+                if (data) {
+                    table(data);
+                }
+                else {
+                    showTable(false);
+                }
+            }
+        });
+    }
+    showIndex = ko.observable(false);
+    // SetRange Action
+    setRange = function () {
+        showSetRange(false);
+        showPreloader(true);
+        $.ajax({
+            url: "@Url.Action("SetRange")",
+            method: "post",
+            data: ko.toJSON(viewModel.range),
+            contentType: "application/json",
+            success: function (data) {
+                if (data) {
+                    showPreloader(false);
+                    showIndex(true);
+                }
+            }
+        });
+    }
+    showPreloader = ko.observable(false);
+
+    showSetRange = ko.observable(false);
+    goToSetRange = function () {
+        showTable(false);
+        showSetRange(true);
+        $.ajax({
+            url: "@Url.Action("DeleteTable")",
+            method: "delete"
+        });
+    }
+    // Table Action
+    var table = ko.observableArray();
+    showTable = ko.observable(false);
+
+    ko.applyBindings(viewModel);
+</script>

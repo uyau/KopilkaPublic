@@ -4,36 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Kopilka</title>
-    <link rel="stylesheet" href="~/css/site.css">
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+    @*<link rel="stylesheet" href="~/css/site.css">*@
+    @*<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">*@
+
+    @*<script src="~/js/infuser.js"></script>
+        <script src="~/js/koExternalTemplateEngine.js"></script>
+        <script src="~/js/TrafficCop.js"></script>*@
+    <script src="~/js/knockout-3.5.1.js"></script>
+    <script src="~/js/jquery-1.9.1.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    <script src="~/js/koExternalTemplateEngine_all.js"></script>
+
 </head>
 <body>
     <header>
 
         <nav>
-            <a class="link_logo" asp-area="" asp-controller="Home" asp-action="Index">koPIPIka</a>
+            <a class="link_logo" href="">koPIPIka</a>
             @if (Context.User.Identity.IsAuthenticated)
             {
-                <a class="link_table" asp-area="" asp-controller="Home" asp-action="RangesToList">Table</a>
-            }
+<a class="link_table" href="">Table</a>            }
         </nav>
         @if (Context.User.Identity.IsAuthenticated)
         {
-            <a class="link_logout" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
-        }
-        </header>
-    
+<a class="link_logout" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>}
+    </header>
+
     <div>
         <main role="main">
             @RenderBody()
         </main>
     </div>
 
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
 </body>
 </html>

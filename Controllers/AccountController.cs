@@ -23,28 +23,26 @@ namespace kopilka.Controllers
             db = context;
             EmailService = emailService;
         }
-        [HttpGet]
+        
         [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginModel model)
+        public async Task<IActionResult> Login([FromBody]LoginModel model)
         {
-            if (ModelState.IsValid)
-            {
+             if(model!=null)
+             { 
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Login && u.Password == model.Password);
                 if (user != null)
                 {
                     await Authenticate(model.Login);
-                    return RedirectToAction("Index", "Home");
+                    return Json(true);
                 }
-                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
-            }
-            return View(model);
+             }
+            
+            return Json(false);
         }
         //отправка пароля на почту
         [HttpGet]
@@ -54,23 +52,17 @@ namespace kopilka.Controllers
             return View();
         }
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SendToEmailPassword(SendToEmailPassword model)
+        public async Task<IActionResult> SendToEmailPassword([FromBody] SendToEmailPassword model)
         {
-            if (ModelState.IsValid)
+
+            var user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Email);
+            if (user != null)
             {
-                var user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Email);
-                if (user != null)
-                {
-                    EmailService.SendEmailPassword(user.Login, user.Password);
-                    return RedirectToAction("Login");
-                }
-                else
-                    ModelState.AddModelError("", "something went wrong..");
-                
+                EmailService.SendEmailPassword(user.Login, user.Password);
+                return Json(true);
             }
-            return View(model);
+
+            return Json(false);
         }
 
 
@@ -80,11 +72,9 @@ namespace kopilka.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterModel model)
+        public async Task<IActionResult> Register([FromBody]RegisterModel model)
         {
-            if (ModelState.IsValid)
-            {
+            
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Login);
                 if (user == null)
                 {
@@ -94,12 +84,10 @@ namespace kopilka.Controllers
 
                     await Authenticate(model.Login);
 
-                    return RedirectToAction("Index", "Home");
+                return Json(true);
                 }
-                else
-                    ModelState.AddModelError("", "Email уже используется");
-            }
-            return View(model);
+
+            return Json(false);
         }
         private async Task Authenticate(string userName)
         {

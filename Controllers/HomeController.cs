@@ -23,11 +23,15 @@ namespace kopilka.Controllers
             db = context;
         }
         
-        //check db for NULL
         [Authorize]
         public IActionResult Index()
         {
-            //проверка бд на наличие таблицы пользователя
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult CheckForRange()
+        {
             var userIdentity = HttpContext.User.Identity;
             var userName = userIdentity.Name;
             var user = db.Users.FirstOrDefault(x => x.Login == userName);
@@ -35,17 +39,18 @@ namespace kopilka.Controllers
 
             if (!userTable.Any())
             {
-                return RedirectToAction("SetRange");
+                return Json(true);
             }
             else
             {
-                return View();
+                return Json(false);
             }
         }
         //внесение cуммы в копилку. изменение значение из внесено false на true
         [HttpPost]
-        public IActionResult Index(int selectedNumber)
+        public IActionResult Index([FromBody]string selectedNumbers)
         {
+            int selectedNumber = Convert.ToInt32(selectedNumbers);
             var userIdentity = HttpContext.User.Identity;
             var userName = userIdentity.Name;
             var user = db.Users.FirstOrDefault(x => x.Login == userName);
@@ -53,8 +58,8 @@ namespace kopilka.Controllers
             var check = db.Ranges.Where(x => x.MoneyboxRange == selectedNumber && x.UserId == user.Id);
             if (!check.Any())
             {
-                ViewBag.message = "некорректное значение либо число не входит в диапазон копилки";
-                return View();
+                string message = "некорректное значение либо число не входит в диапазон копилки";
+                return Json(message);
             }
 
 
@@ -93,6 +98,7 @@ namespace kopilka.Controllers
             db.SaveChanges();
             return View();
         }
+        [HttpDelete]
         public IActionResult DeleteTable()
         {
             var userIdentity = HttpContext.User.Identity;
@@ -103,7 +109,7 @@ namespace kopilka.Controllers
                 db.Ranges.Remove(row);
             }
             db.SaveChanges();
-                return RedirectToAction("SetRange");
+            return Json(true);
         }
 
         //set rande of moneybox. create table
@@ -114,8 +120,9 @@ namespace kopilka.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SetRange(int selectedRange)
+        public async Task<IActionResult> SetRange([FromBody]string selectedRanges)
         {
+            int selectedRange = Convert.ToInt32(selectedRanges);
             var userIdentity = HttpContext.User.Identity;
             var userName = userIdentity.Name;
             var user = db.Users.FirstOrDefault(x => x.Login == userName);
@@ -126,10 +133,11 @@ namespace kopilka.Controllers
                 await db.Ranges.AddAsync(range);
             }
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return Json(true);
         }
 
         //table to list
+        [HttpGet]
         public IActionResult RangesToList()
         {
             var userIdentity = HttpContext.User.Identity;
@@ -138,9 +146,9 @@ namespace kopilka.Controllers
             var userTable = db.Ranges.ToList().Where(x => x.UserId == user.Id).OrderBy(x => x.MoneyboxRange);
             if (!userTable.Any())
             {
-                return RedirectToAction("SetRange");
+                return Json(false);
             }
-            return View(userTable);
+            return Json(userTable);
         }
     }
 }

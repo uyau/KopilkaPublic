@@ -14,7 +14,7 @@ namespace kopilka
         {
             MailMessage emailMessage = new MailMessage();
             emailMessage.IsBodyHtml = true;
-            emailMessage.From = new MailAddress("Kopipika","HiThere@Kopipika.com");
+            emailMessage.From = new MailAddress("messagekopipika@gmail.com", "HiThere@Kopipika.com");
             emailMessage.To.Add(email);
             emailMessage.Subject = "Пароль от учетной записи koPIPIka";
             emailMessage.Body = message;
@@ -22,8 +22,7 @@ namespace kopilka
             {
                 client.UseDefaultCredentials = false;
                 client.EnableSsl = true;
-                client.EnableSsl = true;
-                client.Credentials = new NetworkCredential("messagekopipika@gmail.com", "******");
+                client.Credentials = new NetworkCredential("messagekopipika@gmail.com", "wtfwamble14");
                 client.Port = 587;
                 client.Send(emailMessage);
             }

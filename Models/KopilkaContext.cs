@@ -16,7 +16,7 @@ namespace kopilka.Models
                 : base(options)
 
             {
-               Database.EnsureCreated();
+               //Database.EnsureCreated();
               
             }
         }
